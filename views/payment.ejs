@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Shop</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/0.14.0/jquery.qrcode.min.js"></script>
+    <script src="https://rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        #qrcode {
+            width: 200px;
+            height: 200px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!------------- NAVBAR--------------------------------------------------->
+
+    <nav class="bg-[#2b2925] flex justify-between items-center p-2">
+
+        <a id="backButton" href="/home/homepage" class="text-white underline underline-offset-8  ">Go Back</a>
+  
+        <div class=" p-2 h-[fit-content] border-2 border-white bg-[#e99030] ">
+          <div class=" flex gap-3 p-2 border-2 border-white">
+            <img class="w-9 h-9 bg-[#2b2925]" src="/images/birthday-cake-256.png" alt="">
+  
+            <h1 class="font-bold text-3xl">CAKEZONE</h1>
+          </div>
+        </div>
+  
+        <div class=" hidden sm:block sm:flex gap-2 ">
+          <img class="h-10 w-10" src="/images/phone-2-512.png" alt="">
+          <div>
+            <div class="text-white font-bold">CALL US</div>
+            <div class="font-extralight text-white text-nowrap">+012 345 6789</div>
+          </div>
+        </div>
+  
+      </nav>
+  
+
+   
+
+   
+
+
+    <!-- <div id="qrcode"></div> -->
+    <div class="  mt-9 flex flex-col justify-center items-center">
+        <div id="payButtonDiv" class="bg-[#e99030] p-2 h-[fit-content] w-40 text-center">
+            <button 
+            id="payButton" 
+            data-upiLink="<%= upiLink %>
+            class="border-2 border-white font-semibold text-center text-nowrap ">
+            Generate QRCode
+        </button>
+        </div> 
+    <div id="qrdiv" class="border-4 border-indigo-200 border-t-indigo-500 w-4/5 p-2 flex flex-col justify-center items-center gap-3 hidden md:w-3/5 lg:w-2/5">
+        <h1 class="font-semibold text-2xl text-nowrap underline underline-offset-4">Cake Order Payment Code</h1>
+        <h2 class="text-[#818589]">Scan the OR Code with any UPI App and pay the amount</h2>
+        <div id="qrcode" class="p-2 border-4 border-grey-500 h-[fit-content]"></div>
+        <div class="flex gap-3" >
+            <img src="../images/paytm.png" alt="paytm" class="w-9 h-9">
+            <img src="../images/icons8-phone-pe-512.png" alt="phonepe" class="w-9 h-9">
+            <img src="../images/google-pay.png" alt="google pay" class="w-9 h-9">
+            <img src="../images/amazon-pay.png" alt="amazon pay" class="w-9 h-9">
+        </div>
+        <h2 class="text-[#818589]">Payment status will be updated within 10min</h2>
+        <h2 class="text-[#818589] text-center">If payment done then proceed</h2>
+        
+      <% const encodedUserOrderArray = encodeURIComponent(JSON.stringify(userOrderArray)); %>
+        <a href="/orders/user-orders?orders=<%= encodedUserOrderArray  %>&total=<%= total %>" class="bg-[#e99030] p-2 h-[fit-content] w-36">
+            <div class="border-2 border-white font-semibold text-center text-nowrap  ">
+            Next -></div>
+          </a>
+    </div>
+</div>
+   <script>
+     $(document).ready(function() {
+            $('#payButton').click(function() {
+               
+        const upiLink = $(this).data('upilink'); // Converts to lowercase
+        // const name = $(this).data('name');
+        // const amount = $(this).data('amount');
+        // const vpa = $(this).data('vpa');
+        // const transactionNote = $(this).data('transactionnote'); // Convert to lowercase
+        let payButtonDiv=document.getElementById('payButtonDiv')
+let qrdiv=document.getElementById('qrdiv')
+qrdiv.classList.remove('hidden')
+qrdiv.classList.add('block')
+payButtonDiv.classList.add('hidden')
+        // console.log(name, vpa, amount, transactionNote, upiLink);
+                
+                // const vpa = $('#vpa').val();
+                // const amount = $('#amount').val();
+                // const name = $('#name').val();
+                // const transactionNote = $('#transactionNote').val();
+
+                // // Validate inputs
+                // if (!vpa || !amount || !name || !transactionNote) {
+                //     alert("Please fill in all fields.");
+                //     return;
+                // }
+
+                // const upiLink = `upi://pay?pa=${vpa}&pn=${encodeURIComponent(name)}&mc=&tid=&tn=${encodeURIComponent(transactionNote)}&am=${amount}&cu=INR&url=`;
+
+                // Clear previous QR code
+                $('#qrcode').empty();
+
+                // Generate QR code using qrcode.js
+                const qrcode = new QRCode(document.getElementById("qrcode"), {
+                    text: upiLink,
+                    width: 200,
+                    height: 200,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            });
+        });
+   </script>
+
+</body>
+</html>

@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+
+</head>
+
+<body>
+
+  <div class="min-h-screen">
+
+    <!------------- HEADER--------------------------------------------------->
+
+    <header class="fixed top-0 left-0 right-0 z-50">
+
+      <div id="home" class="bg-[#2b2925] text-white flex justify-between items-center p-2   sm:bg-[#faf4ea] ">
+
+        <div class="flex gap-2 hidden sm:flex">
+          <img class="h-10 w-10" src="/images/message-outline-512.png" alt="">
+          <div>
+            <div class="text-[#453b37] font-bold">EMAIL US</div>
+            <div class="text-extralight text-black">info@example.com</div>
+          </div>
+        </div>
+
+        <div class=" p-2 h-[fit-content] sm:border-2 border-white sm:bg-[#e99030]">
+          <div class=" flex gap-3 p-2 sm:border-2 border-white">
+            <img class="w-9 h-9 sm:bg-[#2b2925]" src="/images/birthday-cake-256.png" alt="">
+
+            <h1 class="font-bold text-3xl">CAKEZONE</h1>
+          </div>
+        </div>
+
+        <div class="flex gap-2 hidden sm:flex ">
+          <img class="h-10 w-10" src="/images/phone-2-512.png" alt="">
+          <div>
+            <div class="text-[#453b37] font-bold">CALL US</div>
+            <div class="font-extralight text-black text-nowrap">+012 345 6789</div>
+          </div>
+        </div>
+
+        <img id="menu" class="w-9 h-9 border-2 border-white p-2 sm:hidden" src="/images/menu-4-512.png" alt="">
+
+
+      </div>
+
+
+      <nav id="nav" class="bg-[#2b2925] flex flex-col  justify-center hidden sm:flex sm:items-center ">
+
+        <ul id="nav-ul" class="text-white font-medium text-1xl p-4 flex flex-col gap-4  sm:flex-row lg:text-2xl">
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#about_us">ABOUT US</a></li>
+          <li><a href="#menu_&_pricing">MENU & PRICING</a></li>
+          <li><a href="#master_chefs">MASTER CHEFS</a></li>
+          <li><a href="#contact_us">CONTACT US</a></li>
+          <!-- <li><a href="/cart">CART</a></li> -->
+          <% if(user!='' ){ %>
+
+            <!-- <li id="box" class="border-2 border-white flex items-center z-50">
+              <img class="h-9 rounded-full mr-3" src="/images/<%= user.profilepic %>" alt="">
+              <a class="text-[#e99030]" href=""><%= user.username %></a>
+              <img onclick="expand()" class="h-5 w-5 ml-3  " src="/images/arrow-204-512.png" alt="">
+            </li> -->
+            <li>
+              <div class="dropdown flex">
+                <img class="h-9 rounded-full border-2 border-[#e99030] " src="/images/<%= user.profilepic %>"
+                  alt="profilepic">
+                <a class="btn  dropdown-toggle text-[#e99030]  bg-[#2b2925]" href="#" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <%= user.username %>
+                </a>
+
+                <ul class="dropdown-menu bg-[#2b2925] ">
+                  <li><a class="dropdown-item text-white " href="/auth/profile/<%= user._id %>">Edit Profile</a></li>
+                  <li><a class="dropdown-item text-white " href="/cart/cart_page">Cart</a></li>
+                  <li><a class="dropdown-item text-white" href="/orders/user-orders-page">Orders</a></li>
+
+                  <% if(user.role=='admin' ){ %>
+                    <li><a class="dropdown-item text-white" href="/admin/Admin-Dashboard">Admin-Dashboard</a></li>
+                    <% } %>
+                      <li><a class="dropdown-item text-white" href="/auth/signout">Sign Out</a></li>
+                </ul>
+              </div>
+            </li>
+            <% }else{ %>
+              <li><a class="text-[#e99030]" href="/auth/signup">SignUp/SignIn</a>
+
+              </li>
+              <% } %>
+        </ul>
+
+      </nav>
+    </header>
+
+
+    <!------------- SECTION 1 CAKEZONE--------------------------------------------------->
+    <section
+      class="text-white h-[100vh] bg-cover bg-bottom bg-no-repeat flex flex-col items-center justify-center gap-3 md:bg-center"
+      style="background-image: linear-gradient(rgba(0, 0,  0,0.5), rgba(0, 0, 0, 0.5)), url('/images/beautiful\ pastr\ 651c77d0-7033-4a97-8e87-21a9c8953231.png');">
+      <h3 class="italic text-[#e99030] font-semibold text-2xl sm:text-3xl md:4xl lg:text-5xl">Super Crispy</h3>
+      <h1 class="font-black text-5xl sm:text-6xl md:7xl lg:text-8xl">CAKEZONE</h1>
+      <h2 class="font-bold text-3xl sm:text-4xl md:5xl lg:text-6xl">BEST CAKE IN NEW DELHI</h2>
+
+      <div class="flex gap-7 justify-center items-center">
+        <!------------- read more button--------------------------------------------------->
+        <div class="bg-[#e99030] p-2 h-[fit-content] w-36 sm:w-40 md:w-44 lg:w-52">
+          <div class="border-2 border-white font-semibold text-center text-nowrap sm:text-2xl md:text-3xl lg:text-4xl">
+            Read More</div>
+        </div>
+        <!------------- play video--------------------------------------------------->
+        <div class="flex items-center gap-2">
+          <div class="h-14 w-14 rounded-full bg-white">
+            <img class="h-14 w-14 rotate-90 rounded-full"
+              src="/images/orange triangle 1c4378bc-f5b0-4e5f-9e69-ae13285d8f52.png" alt="">
+          </div>
+          <p class="sm:text-1xl md:text-2xl lg:text-3xl">Play video</p>
+        </div>
+
+      </div>
+
+
+    </section>
+
+    <!-------------SECTION-2 ABOUT US--------------------------------------------------->
+    <section id="about_us">
+      <div class="mt-20 h-[fit-content] flex flex-col gap-4 items-center">
+        <h1 class=" text-3xl font-bold italic text-center  text-[#e99030] sm:text-4xl">About Us</h1>
+        <h1 class="font-bold text-black text-4xl tracking-tighter text-center text-nowrap sm:text-5xl">WELCOME
+          TO
+          CAKEZONE</h1>
+        <div class="bg-[#e99030] w-48 h-1 text-white ">.</div>
+      </div>
+
+      <div class=" mt-5 h-[fit-content] md:flex ">
+        <div class=" p-4 md:w-1/2 ">
+          <img class=" w-[100%] h-[50vh] md:h-full " src="/images/james-coleman-5HR1gItc7Gs-unsplash.jpg" alt="">
+        </div>
+
+        <div class="md:flex flex-col md:w-1/2  xl:gap-7">
+          <div class=" p-4 sm:p-4 md:p-2 ">
+            <h2 class="tracking-tighter font-semibold text-2xl sm:mt-3 md:text-[1.3rem] lg:text-[1.7rem]">
+              Lorem
+              ipsum dolor sit amet consectetur adipisicing
+              elit. Beatae quod cupiditate dolor dolorum sit.
+              Nemo doloremque dicta ut sit fugiat!</h2>
+            <h3 class="text-[1.3rem] mt-3 m:mt-5 md:mt-3 lg:text-[1.4rem]">Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Omnis natus sunt itaque voluptatem
+              blanditiis? Temporibus, molestias? Maxime, iure iusto? Aspernatur aliquam optio obcaecati
+              id?
+              Nemo
+              assumenda cumque sunt nostrum ea!</h3>
+          </div>
+
+          <div class=" p-4 flex flex-col gap-4 sm:p-4 md:flex-row md:p-2">
+            <div class="flex flex-col gap-3 items-center">
+              <div class="bg-[#e99030] w-28 h-28 p-2 md:w-20 md:h-20">
+                <div class="border-2 border-white flex h-full gap-3 items-center justify-center">
+                  <img src="/images/healthy.PNG" alt="">
+                </div>
+              </div>
+              <p class="tracking-tighter font-semibold  text-2xl md:text-[1.3rem] md:text-nowrap lg:text-[1.5rem]">
+                100% HEALTHY</p>
+              <P class="text-[1.3rem]  lg:text-[1.2rem]">Lorem ipsum, dolor sit amet consectetur
+                adipisicing
+                elit. Ducimus itaque quam harum nihil
+                saepe adipisci! Dolore eos quod placeat consequatur!</P>
+            </div>
+
+            <div class="flex flex-col gap-3 items-center">
+              <div class="bg-[#e99030] w-28 h-28 p-2 md:w-20 md:h-20 ">
+                <div class="border-2 border-white flex h-full gap-3 items-center justify-center">
+                  <img src="/images/awrd.webp" alt="">
+                </div>
+              </div>
+              <p class="tracking-tighter font-semibold  text-2xl md:text-[1.3rem] md:text-nowrap lg:text-[1.5rem]">
+                AWWARD WINNING</p>
+              <P class="text-[1.3rem]  lg:text-[1.2rem]">Lorem ipsum dolor sit amet, consectetur
+                adipisicing
+                elit. Cum odit quod est autem impedit
+                cupiditate ab tempora ipsa. Sed, voluptatem.</P>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-------------SECTION-3 NUMBERS --------------------------------------------------->
+    <section
+      class="bg-[#2b2925] flex flex-col gap-5 p-4 sm:grid sm:grid-cols-2 lg:flex lg:flex-row lg:h-[30vh] xl:justify-center ">
+
+      <div class="flex gap-5 sm:items-center ">
+        <div class="bg-[#e99030] w-16 h-16 p-2 ">
+          <div class="border-2 border-white flex h-full gap-3 items-center justify-center">
+            <img class="" src="/images/star.PNG" alt="">
+          </div>
+        </div>
+        <div>
+          <p class="text-[#e99030] font-bold">OUR EXPERIENCE</p>
+          <P class="font-bold text-white text-5xl lg:text-4xl">7592</P>
+        </div>
+      </div>
+
+
+      <div class="flex gap-5 sm:items-center ">
+        <div class="bg-[#e99030] w-16 h-16 p-2">
+          <div class="border-2 border-white flex h-full gap-3 items-center justify-center">
+            <img src="/images/people.PNG" alt="">
+          </div>
+        </div>
+        <div>
+          <p class="text-[#e99030] font-bold">CAKE SPECIALIST</p>
+          <P class="font-bold text-white text-5xl lg:text-4xl">7592</P>
+        </div>
+      </div>
+
+
+      <div class="flex gap-5 sm:items-center ">
+        <div class="bg-[#e99030] w-16 h-16 p-2">
+          <div class="border-2 border-white flex h-full gap-3 items-center justify-center">
+            <img src="/images/tick.PNG" alt="">
+          </div>
+        </div>
+        <div>
+          <p class="text-[#e99030] font-bold ">COMPLETE PROJECTS</p>
+          <P class="font-bold text-white text-5xl lg:text-4xl">7592</P>
+        </div>
+      </div>
+
+
+      <div class="flex gap-5 sm:items-center">
+        <div class="bg-[#e99030] w-16 h-16 p-2">
+          <div class="border-2 border-white flex h-full gap-3 items-center justify-center">
+            <img src="/images/mug.PNG" alt="">
+          </div>
+        </div>
+        <div>
+          <p class="text-[#e99030] font-bold">HAPPY CLIENTS</p>
+          <P class="font-bold text-white text-5xl lg:text-4xl">7592</P>
+        </div>
+      </div>
+
+    </section>
+
+    <!-------------SECTION-4 MENU AND PRICING --------------------------------------------------->
+    <section id="menu_&_pricing">
+
+      <div class="mt-20 h-[fit-content] flex flex-col gap-4 items-center">
+        <h1 class=" text-3xl font-bold italic text-center  text-[#e99030] sm:text-4xl">Menu And Pricing</h1>
+        <h1 class="font-bold text-black text-4xl tracking-tighter text-center text-nowrap sm:text-5xl">EXPLORE
+          OUR CAKES</h1>
+        <div class="bg-[#e99030] w-48 h-1 text-white ">.</div>
+
+        <div class="bg-[#2b2925] p-2 w-[fit-content] mt-6 ">
+          <div class="border-2 px-2 border-white flex h-full gap-5  items-center justify-center">
+            <h1 class="font-semibold text-white text-1xl py-2 sm:text-2xl">BIRTHDAY</h1>
+            <h1 class="font-semibold text-white text-1xl py-2 sm:text-2xl">WEDDING</h1>
+            <h1 class="font-semibold text-white text-1xl py-2 sm:text-2xl">CUSTOM</h1>
+          </div>
+        </div>
+
+        <div
+          class="border-2 border-[#e99030] h-[80vh] shadow-lg overflow-hidden p-4 flex  flex-col gap-3 w-[90vw]  sm:w-[80vw] md:grid md:grid-cols-2  md:w-[90vw]">
+
+
+
+
+          <% products.reverse().forEach(function(product){ %>
+            <div class="flex gap-2  bg-[#ede8de] h-[24vh]">
+              <div class="bg-[#31312d] w-1/3">
+                <img class=" w-full h-[17vh] md:h-[20vh] lg:h-[20vh]" src="/images/uploads/<%= product.productpic %>"
+                  alt="">
+                <p class="bg-[#2b2925] text-[#e99030] text-center font-semibold">Rs <%= product.price %>
+                </p>
+              </div>
+              <div class="w-2/3 p-2">
+                <p class="tracking-tighter font-semibold  text-2xl text-nowrap overflow-hidden ">
+                  <%= product.name %>
+                </p>
+                <p class="mt-3 overflow-hidden h-[10vh] ">
+                  <%= product.description %>
+                </p>
+              </div>
+            </div>
+            <% }) %>
+
+
+
+        </div>
+
+        <a href="/products/list-products?currentUrl=<%= currentUrl %>"
+          class="bg-[#e99030] p-2 h-[fit-content] w-36 sm:w-44 md:w-52 lg:w-60">
+          <div class="border-2 border-white font-semibold text-center text-nowrap  sm:text-2xl md:text-3xl lg:text-4xl">
+            ExploreMore</div>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-------------SECTION-5 DISCOUNT --------------------------------------------------->
+    <section class="W-[fit-content] relative bg-cover bg-center flex flex-col justify-center items-center gap-3 mt-40"
+      style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/pexels-abhinavcoca-291528.jpg');">
+
+      <div class="mt-[-16vh] flex flex-col items-center gap-3 md:flex md:flex-row  ">
+
+        <div class="bg-[#e99030]  w-2/3 p-2  sm:w-1/2 md:w-1/3 md:w-[30vw]">
+          <div class="border-2 border-white flex flex-col p-4  items-center gap-3">
+            <h1 class="font-semibold text-black text-2xl text-nowrap">BIRTHDAY CAKE</h1>
+            <p class="text-white font-semibold text-1xl ">Lorem ipsum dolor sit amet consectetur adipisicing
+              elit.
+              Quidem, reprehenderit tenetur fuga corrupti impedit praesentium commodi neque sed quis
+              laborum!
+            </p>
+            <!-- <p class="text-1xl">READ MORE -></p> -->
+          </div>
+        </div>
+
+        <div class="bg-[#e99030]  w-2/3 p-2 sm:w-1/2 md:w-1/3 md:w-[30vw] ">
+          <div class="border-2 border-white flex flex-col p-4  items-center gap-3">
+            <h1 class="font-semibold text-black text-2xl text-nowrap">WEDDING CAKE</h1>
+            <p class="text-white font-semibold text-1xl ">Lorem ipsum dolor sit amet consectetur adipisicing
+              elit.
+              Quidem, reprehenderit tenetur fuga corrupti impedit praesentium commodi neque sed quis
+              laborum!
+            </p>
+            <!-- <p class="text-1xl">READ MORE -></p> -->
+          </div>
+        </div>
+
+        <div class="bg-[#e99030]  w-2/3 p-2 sm:w-1/2 md:w-1/3 md:w-[30vw] ">
+          <div class="border-2 border-white flex flex-col p-4  items-center gap-3">
+            <h1 class="font-semibold text-black text-2xl text-nowrap">CUSTOM CAKE</h1>
+            <p class="text-white font-semibold text-1xl ">Lorem ipsum dolor sit amet consectetur adipisicing
+              elit.
+              Quidem, reprehenderit tenetur fuga corrupti impedit praesentium commodi neque sed quis
+              laborum!
+            </p>
+            <!-- <p class="text-1xl">READ MORE -></p> -->
+          </div>
+        </div>
+
+      </div>
+
+      <h1 class="font-bold text-white text-3xl text-center mt-10 sm:text-4xl lg:text-5xl">30% DISCOUNT FOR THIS
+        SUMMER</h1>
+
+      <div class="bg-[#e99030] w-2/4 p-2 mb-20  mt-10 sm:w-1/4">
+        <div class="border-2 border-white flex h-full  gap-3 items-center justify-center">
+          <h5 class="font-bold text-white text-2xl">Order Now</h5>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-------------SECTION-6 CHEFS --------------------------------------------------->
+    <section id="master_chefs">
+
+      <div class="mt-20 flex flex-col gap-4 items-center">
+        <h1 class=" text-3xl font-bold italic text-center  text-[#e99030] sm:text-4xl">Team Members</h1>
+        <h1 class="font-bold text-black text-4xl tracking-tighter text-center text-nowrap sm:text-5xl">OUR
+          MASTER CHEFS</h1>
+        <div class="bg-[#e99030] w-48 h-1 text-white ">.</div>
+
+        <div class="w-full flex flex-col items-center gap-4 lg:flex-row lg:p-4">
+
+          <div class="w-2/3  sm:w-1/2">
+            <img class="w-full h-[33vh] lg:h-[50vh]" src="/images/chef1.jpg" alt="">
+            <div class="bg-[#2b2925] p-2  ">
+              <div class="border-2 border-white flex flex-col h-full  items-center justify-center">
+                <h5 class="font-semibold text-[#e99030] text-2xl p-2">FULL NAME</h5>
+                <h5 class="font-medium text-white text-1xl">Designation</h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-2/3  sm:w-1/2">
+            <img class="w-full h-[33vh] lg:h-[50vh]" src="/images/chef2.png" alt="">
+            <div class="bg-[#2b2925] p-2  ">
+              <div class="border-2 border-white flex flex-col h-full  items-center justify-center">
+                <h5 class="font-semibold text-[#e99030] text-2xl p-2">FULL NAME</h5>
+                <h5 class="font-medium text-white text-1xl">Designation</h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-2/3  sm:w-1/2">
+            <img class="w-full h-[33vh] lg:h-[50vh]" src="/images/chef3.jpg" alt="">
+            <div class="bg-[#2b2925] p-2  ">
+              <div class="border-2 border-white flex flex-col h-full  items-center justify-center">
+                <h5 class="font-semibold text-[#e99030] text-2xl p-2">FULL NAME</h5>
+                <h5 class="font-medium text-white text-1xl">Designation</h5>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-------------SECTION-7 COMBO --------------------------------------------------->
+    <section class=" bg-cover bg-top p-4  flex flex-col  items-center justify-center mt-20 lg:h-[100vh] "
+      style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/pexels-quang-nguyen-vinh-222549-2144200.jpg');">
+
+      <div class=" h-[fit-content]  flex flex-col gap-4 items-center">
+        <h1 class=" text-3xl font-bold italic text-center  text-[#e99030] sm:text-4xl md:text-5xl">Special Combo
+          Pack</h1>
+        <h1 class="font-bold text-white text-4xl tracking-tighter text-center text-nowrap sm:text-5xl md:text-6xl">
+          SUPER CRISPY CAKES</h1>
+        <div class="bg-[#e99030] w-48 h-1 text-white ">.</div>
+
+        <p class="text-white md:text-2xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque ea
+          omnis
+          dolorum neque sunt excepturi, dolores ad itaque tenetur molestias, aliquam nulla qui perspiciatis
+          quasi nemo
+          eaque voluptatem tempora nihil ipsa fugit cupiditate numquam labore? Unde facilis tempore voluptates
+          architecto.
+        </p>
+
+        <div class="flex gap-5 items-center">
+
+          <div class="bg-[#e99030] w-4/5 p-2  ">
+            <div class="border-2 border-white flex h-full  p-2 gap-3 items-center justify-center">
+              <h5 class="font-bold text-white text-2xl text-nowrap">Order Now</h5>
+            </div>
+          </div>
+
+          <div class="bg-[#2b2925] w-4/5 p-2 ">
+            <div class="border-2 border-white flex h-full p-2  gap-3 items-center justify-center">
+              <h5 class="font-bold text-white text-2xl text-nowrap">Order Now</h5>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-------------SECTION-8 TESTIMONIALS --------------------------------------------------->
+    <section class="flex flex-col items-center h-[fit-content] border-4 ">
+
+      <div class="mt-20 h-[fit-content] flex flex-col gap-4 items-center">
+        <h1 class=" text-3xl font-bold italic text-center  text-[#e99030] sm:text-4xl">Testimonial</h1>
+        <h1 class="font-bold text-black text-4xl tracking-tighter text-center text-nowrap sm:text-5xl">OUR
+          CLIENTS SAY!!!</h1>
+        <div class="bg-[#e99030] w-48 h-1 text-white ">.</div>
+      </div>
+
+      <div class=" flex flex-col items-center p-3  lg:flex-row gap-3  lg:p-5">
+        <!-------------carasoul1--------------------------------------------------->
+        <div id="carouselExampleSlidesOnly"
+          class="carousel slide w-4/5 mt-10  hidden bg-white opacity-50 sm:w-2/4 lg:block " data-bs-ride="carousel">
+          <div class="carousel-inner">
+
+            <div class="carousel-item active">
+
+              <div class="bg-[#2b2925] p-2  border-2 border-orange-500 h-[50vh] sm:h-[50vh] md:h-[40vh] lg:h-[50vh]">
+                <div
+                  class="border-2 border-white flex flex-col p-3 h-full gap-3 items-center justify-center      relative">
+                  <div class="flex gap-3">
+                    <img class="h-20 w-20" src="/images/chef1.jpg" alt="">
+                    <div>
+                      <h1 class="font-semibold text-[#e99030] tracking-tighter w-full text-2xl text-nowrap">
+                        CLIENT NAME
+                      </h1>
+                      <P class="text-white">Profession</P>
+                    </div>
+                  </div>
+                  <p class="text-white font-semibold mt-3 ">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit.
+                    Quidem, reprehenderit tenetur fuga corrupti impedit praesentium commodi neque
+                    sed
+                    quis laborum!
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="carousel-item active">
+
+              <div class="bg-[#2b2925] p-2 h-[50vh]border-2 border-orange-500 sm:h-[50vh] md:h-[40vh] lg:h-[50vh]">
+                <div
+                  class="border-2 border-white flex flex-col p-3 h-full gap-3 items-center justify-center      relative">
+                  <div class="flex gap-3">
+                    <img class="h-20 w-20" src="/images/chef2.png" alt="">
+                    <div>
+                      <h1 class="font-semibold text-[#e99030] tracking-tighter w-full text-2xl text-nowrap">
+                        CLIENT NAME
+                      </h1>
+                      <P class="text-white">Profession</P>
+                    </div>
+                  </div>
+                  <p class="text-white font-semibold mt-3 ">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit.
+                    Quidem, reprehenderit tenetur fuga corrupti impedit praesentium commodi neque
+                    sed
+                    quis laborum!
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="carousel-item active">
+
+              <div class="bg-[#2b2925] p-2 h-[50vh] border-2 border-orange-500 sm:h-[50vh] md:h-[40vh] lg:h-[50vh]">
+                <div
+                  class="border-2 border-white flex flex-col p-3 h-full gap-3 items-center justify-center      relative">
+                  <div class="flex gap-3">
+                    <img class="h-20 w-20" src="/images/chef3.jpg" alt="">
+                    <div>
+                      <h1 class="font-semibold text-[#e99030] tracking-tighter w-full text-2xl text-nowrap">
+                        CLIENT NAME
+                      </h1>
+                      <P class="text-white">Profession</P>
+                    </div>
+                  </div>
+                  <p class="text-white font-semibold mt-3 ">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit.
+                    Quidem, reprehenderit tenetur fuga corrupti impedit praesentium commodi neque
+                    sed
+                    quis laborum!
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-------------carasoul2--------------------------------------------------->
+        <div id="carouselExampleSlidesOnly" class="carousel slide w-4/5  mt-10 sm:w-2/4  " data-bs-ride="carousel">
+          <div class="carousel-inner">
+
+            <div class="carousel-item active">
+
+              <div class="bg-[#2b2925] p-2 h-[50vh] border-2 border-orange-500 sm:h-[50vh] md:h-[40vh] lg:h-[50vh]">
+                <div
+                  class="border-2 border-white flex flex-col p-3 h-full gap-3 items-center justify-center      relative">
+                  <div class="flex gap-2">
+                    <img class="h-20 w-20" src="/images/chef2.png" alt="">
+                    <div>
+                      <h1 class="font-semibold text-[#e99030] tracking-tighter w-full text-2xl text-nowrap">
+                        CLIENT NAME
+                      </h1>
+                      <P class="text-white">Profession</P>
+                    </div>
+                  </div>
+                  <p class="text-white font-semibold mt-3 ">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit.
+                    Quidem, reprehenderit tenetur fuga corrupti impedit praesentium commodi neque
+                    sed
+                    quis laborum!
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="carousel-item active">
+
+              <div class="bg-[#2b2925] p-2 h-[50vh] border-2 border-orange-500 sm:h-[50vh] md:h-[40vh] lg:h-[50vh]">
+                <div
+                  class="border-2 border-white flex flex-col p-3 h-full gap-3 items-center justify-center      relative">
+                  <div class="flex gap-3">
+                    <img class="h-20 w-20" src="/images/chef3.jpg" alt="">
+                    <div>
+                      <h1 class="font-semibold text-[#e99030] tracking-tighter w-full text-2xl text-nowrap">
+                        CLIENT NAME
+                      </h1>
+                      <P class="text-white">Profession</P>
+                    </div>
+                  </div>
+                  <p class="text-white font-semibold mt-3 ">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit.
+                    Quidem, reprehenderit tenetur fuga corrupti impedit praesentium commodi neque
+                    sed
+                    quis laborum!
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="carousel-item active">
+
+              <div class="bg-[#2b2925] p-2 h-[50vh] border-2 border-orange-500 sm:h-[50vh] md:h-[40vh] lg:h-[50vh]">
+                <div
+                  class="border-2 border-white flex flex-col p-3 h-full gap-3 items-center justify-center      relative">
+                  <div class="flex gap-3">
+                    <img class="h-20 w-20" src="/images/chef1.jpg" alt="">
+                    <div>
+                      <h1 class="font-semibold text-[#e99030] tracking-tighter w-full text-2xl text-nowrap">
+                        CLIENT NAME
+                      </h1>
+                      <P class="text-white">Profession</P>
+                    </div>
+                  </div>
+                  <p class="text-white font-semibold mt-3 ">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit.
+                    Quidem, reprehenderit tenetur fuga corrupti impedit praesentium commodi neque
+                    sed
+                    quis laborum!
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-------------carasoul3--------------------------------------------------->
+        <div id="carouselExampleSlidesOnly"
+          class="carousel slide w-4/5 mt-10  bg-white opacity-50 hidden  sm:w-2/4 lg:block  " data-bs-ride="carousel">
+          <div class="carousel-inner">
+
+            <div class="carousel-item active">
+
+              <div class="bg-[#2b2925] p-2 h-[70vh] border-2 border-orange-500 sm:h-[50vh] md:h-[40vh] lg:h-[50vh]">
+                <div
+                  class="border-2 border-white flex flex-col p-3 h-full gap-3 items-center justify-center      relative">
+                  <div class="flex gap-3">
+                    <img class="h-20 w-20" src="/images/chef3.jpg" alt="">
+                    <div>
+                      <h1 class="font-semibold text-[#e99030] tracking-tighter w-full text-2xl text-nowrap">
+                        CLIENT NAME
+                      </h1>
+                      <P class="text-white">Profession</P>
+                    </div>
+                  </div>
+                  <p class="text-white font-semibold mt-3 ">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit.
+                    Quidem, reprehenderit tenetur fuga corrupti impedit praesentium commodi neque
+                    sed
+                    quis laborum!
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="carousel-item active">
+
+              <div class="bg-[#2b2925] p-2 h-[70vh] border-2 border-orange-500 sm:h-[50vh] md:h-[40vh] lg:h-[50vh]">
+                <div
+                  class="border-2 border-white flex flex-col p-3 h-full gap-3 items-center justify-center      relative">
+                  <div class="flex gap-3">
+                    <img class="h-20 w-20" src="/images/chef1.jpg" alt="">
+                    <div>
+                      <h1 class="font-semibold text-[#e99030] tracking-tighter w-full text-2xl text-nowrap">
+                        CLIENT NAME
+                      </h1>
+                      <P class="text-white">Profession</P>
+                    </div>
+                  </div>
+                  <p class="text-white font-semibold mt-3 ">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit.
+                    Quidem, reprehenderit tenetur fuga corrupti impedit praesentium commodi neque
+                    sed
+                    quis laborum!
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="carousel-item active">
+
+              <div class="bg-[#2b2925] p-2 h-[70vh] border-2 border-orange-500 sm:h-[50vh] md:h-[40vh] lg:h-[50vh]">
+                <div
+                  class="border-2 border-white flex flex-col p-3 h-full gap-3 items-center justify-center      relative">
+                  <div class="flex gap-3">
+                    <img class="h-20 w-20" src="/images/chef2.png" alt="">
+                    <div>
+                      <h1 class="font-semibold text-[#e99030] tracking-tighter w-full text-2xl text-nowrap">
+                        CLIENT NAME
+                      </h1>
+                      <P class="text-white">Profession</P>
+                    </div>
+                  </div>
+                  <p class="text-white font-semibold mt-3 ">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit.
+                    Quidem, reprehenderit tenetur fuga corrupti impedit praesentium commodi neque
+                    sed
+                    quis laborum!
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-------------SECTION-9 FOOTER --------------------------------------------------->
+    <section id="contact_us" class="bg-[#2b2925] p-3 flex flex-col items-center gap-5">
+      <div class="flex flex-col md:items-center lg:flex-row lg:items-start">
+        <div class="flex flex-col gap-4 sm:items-center  md:flex-row md:items-start ">
+          <!-------------cake card--------------------------------------------------->
+          <div class="bg-[#e99030]   p-2 sm:w-2/4 lg:w-2/6">
+            <div class="border-2 border-white p-2 flex flex-col  gap-3  items-center justify-center">
+              <div class="flex items-center justify-center gap-[1vw] items-center  sm:flex-col lg:flex-row">
+                <img class="h-10 w-10" src="/images/birthday-cake.png" alt="">
+                <h1 class="font-black text-white text-center text-2xl">CAKEZONE</h1>
+              </div>
+
+              <p class="text-center text-1xl text-white">Lorem ipsum, dolor sit amet consectetur
+                adipisicing
+                elit.
+                Odio
+                voluptatibus accusantium laboriosam architecto tempore dolore iure atque obcaecati porro
+                iste
+                aperiam praesentium quidem enim, temporibus ut soluta architecto tempore dolore iure
+                atque
+                obcaecati porro iste aperiam praesentium quidem enim,</p>
+            </div>
+          </div>
+
+          <div class=" w-full flex flex-col gap-3 sm:w-[fit-content] sm:flex sm:justify-center sm:gap-5 md:flex-row">
+            <div class="text-white flex flex-col gap-2  ">
+              <h1 class="text-[#e99030] text-2xl  tracking-tighter font-bold ">GET IN TOUCH</h1>
+              <p class="flex gap-2 text-1xl"><img class="h-6 w-6" src="/images/worldwide-location-512.png" alt="">123
+                Street, New Delhi, India</p>
+              <p class="flex gap-2 text-1xl"><img class="h-6 w-6" src="/images/email-512.png" alt="">info@example.com
+              </p>
+              <p class="flex gap-2 text-1xl"><img class="h-6 w-6" src="/images/phone-2-512.png" alt="">+012
+                345 6789</p>
+            </div>
+
+            <div class="text-white flex flex-col gap-2 ">
+              <h1 class="text-[#e99030] text-2xl tracking-tighter font-bold ">QUICK LINKS</h1>
+              <p class="flex gap-2 text-1xl"><img class="h-6 w-6" src="/images/arrow-20-512.png" alt="">Home
+              </p>
+              <p class="flex gap-2 text-1xl"><img class="h-6 w-6" src="/images/arrow-20-512.png" alt="">About
+                Us</p>
+              <p class="flex gap-2 text-1xl"><img class="h-6 w-6" src="/images/arrow-20-512.png" alt="">Our
+                Services</p>
+              <p class="flex gap-2 text-1xl text-nowrap"><img class="h-6 w-6" src="/images/arrow-20-512.png" alt="">Meet
+                The Team</p>
+              <p class="flex gap-2 text-1xl"><img class="h-6 w-6" src="/images/arrow-20-512.png" alt="">Latest
+                Blogs</p>
+              <p class="flex gap-2 text-1xl"><img class="h-6 w-6" src="/images/arrow-20-512.png" alt="">Contact Us</p>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+        <div class="text-white flex flex-col gap-2 mt-10 md:w-3/5 lg:mt-0">
+          <h1 class="text-[#e99030] text-2xl tracking-tighter font-bold">NEWSLETTER</h1>
+          <P class=" text-1xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, eius.</P>
+          <p class="flex flex-col"><input class=" text-black p-2  text-center" type="email"
+              placeholder="Your Email"><input class="text-white p-2 text-center bg-[#e99030] font-black " type="submit"
+              value="Sign Up"></p>
+        </div>
+      </div>
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+  </div>
+
+
+  <!-------------BOOTSTRAP-------------------------------------------------->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+<script src="/javascripts/index.js"></script>
+  
+
+</body>
+
+</html>

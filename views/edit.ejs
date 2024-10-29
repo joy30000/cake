@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <section id="menu_&_pricing">
+
+    <nav class="bg-[#2b2925] flex justify-between items-center p-2">
+
+      <button id="backButton" class="text-white underline underline-offset-8  ">Go Back</button>
+
+      <div class=" p-2 h-[fit-content] border-2 border-white bg-[#e99030] ">
+        <div class=" flex gap-3 p-2 border-2 border-white">
+          <img class="w-9 h-9 bg-[#2b2925]" src="/images/birthday-cake-256.png" alt="">
+
+          <h1 class="font-bold text-3xl">CAKEZONE</h1>
+        </div>
+      </div>
+
+      <div class=" hidden sm:block sm:flex gap-2 ">
+        <img class="h-10 w-10" src="/images/phone-2-512.png" alt="">
+        <div>
+          <div class="text-white font-bold">CALL US</div>
+          <div class="font-extralight text-white text-nowrap">+012 345 6789</div>
+        </div>
+      </div>
+
+    </nav>
+    <form action="/admin/update-product" method="post" enctype="multipart/form-data">
+      <div class=" h-[fit-content] mt-7 flex flex-col gap-4 items-center">
+        <h1 class="text-[#e99030] font-semibold text-2xl tracking-tighter text-center text-nowrap sm:text-3xl"> Click on
+          the element which you want to edit</h1>
+        <h1 class="font-bold text-black text-4xl tracking-tighter text-center text-nowrap sm:text-5xl">
+          <textarea name="name" class="text-center resize-none h-[7vh]"><%= products.name %></textarea>
+        </h1>
+        <div class="bg-[#e99030] w-48 h-1 text-white ">.</div>
+      </div>
+
+      <div class=" mt-5 h-[fit-content] md:flex ">
+        <div class=" p-4 md:w-1/2 ">
+          <img class=" w-[100%] h-[80vw] sm:h-[70vw] md:h-[40vw] lg:h-[50vw] "
+            src="/images/uploads/<%= products.productpic %>" alt="">
+
+
+
+
+
+        </div>
+
+        <div class="md:flex flex-col md:w-1/2  xl:gap-7">
+          <div class=" p-4 sm:p-4 md:p-2 ">
+            <h2 class="tracking-tighter font-semibold text-2xl sm:mt-3 md:text-3xl lg:text-[1.7rem]">
+              <textarea name="description" class="w-full resize-none"><%= products.description %></textarea>
+            </h2>
+
+
+            <h2 class="tracking-tighter font-semibold  text-2xl mt-7 md:text-[1.3rem] lg:text-[1.7rem]">
+              Category:
+              <span class="font-normal">
+                <select name="category" name="category">
+                  <option value="<%= products.category %>">
+                    <%= products.category %>
+                  </option>
+
+                  <option value="Wedding">Wedding</option>
+                  <option value="Custom">Custom</option>
+
+                </select>
+              </span>
+
+            </h2>
+
+            <h2
+              class="tracking-tighter font-semibold  text-2xl flex items-center mt-7 md:text-[1.3rem] lg:text-[1.7rem]">
+              Price:
+              <span class="font-normal ">
+                Rs. <textarea name="price" class="h-[4vh] resize-none "><%= products.price %></textarea>
+              </span>
+            </h2>
+            <h3 class="text-[#e99030] mt-3">If you want to change the image then choose the image (note*: File should be
+              in jpg format) otherwise just skip this</h2>
+              <input type="file" name="image" id="imageInput" accept="image/*">
+              <img id="imagePreview" src="" alt="Image Preview"
+                style="display: none; width: 200px; height: auto; margin-top: 10px;">
+              <input class="px-5 py-2 bg-[#e99030] font-bold rounded-md hidden" name="productId" type="text"
+                value="<%= productId %>">
+              <input class="px-5 py-2 bg-[#e99030] font-bold rounded-md" type="submit" value="Update">
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </section>
+
+  <script>
+    document.getElementById('imageInput').addEventListener('change', function (event) {
+      const file = event.target.files[0];
+      const preview = document.getElementById('imagePreview');
+
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result; // Set the image source to the selected file
+          preview.style.display = 'block'; // Show the image
+        };
+        reader.readAsDataURL(file); // Read the file as a data URL
+      } else {
+        preview.style.display = 'none'; // Hide the preview if no file is selected
+      }
+    });
+  </script>
+</body>
+
+</html>
