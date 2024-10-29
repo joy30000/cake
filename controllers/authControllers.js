@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser')
 const express = require("express");
 const app = express();
 app.use(cookieParser())
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 
 //----------SIGNUP || METHOD POST------------------//
