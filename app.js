@@ -27,6 +27,10 @@ connectDB();
 
 
 //-----------Routes----------------//
+app.get("/", (req, res) => {
+    res.redirect("/home/homepage");
+  });
+
 app.use("/home",homeRoutes)
 app.use("/auth", authRoutes)
 app.use("/products",productRoutes)
