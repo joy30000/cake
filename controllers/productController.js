@@ -167,7 +167,7 @@ const categoryController = async (req, res) => {
         const category = req.params.category
         const products = productsCache.filter(product => product.category === category);
         let currentUrl = req.originalUrl
-        res.render('products.ejs', { products, user, filter,  currentUrl });
+        res.render('products.ejs', { products, user, filter });
     })
 }
 

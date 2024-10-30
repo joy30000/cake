@@ -9,27 +9,36 @@
 </head>
 <body>
 
-    <nav class="bg-[#2b2925] flex justify-between items-center p-2">
+  <nav id="home" class="bg-[#2b2925] text-white flex justify-center  items-center p-2   sm:bg-[#faf4ea] justify-between ">
 
-        <a id="backButton" href="/home/homepage"  class="text-white underline underline-offset-8  ">Go Back</a>
+    <div class="flex gap-2 hidden sm:flex">
+      <img class="h-10 w-10" src="/images/message-outline-512.png" alt="">
+      <div>
+        <div class="text-[#453b37] font-bold">EMAIL US</div>
+        <div class="text-extralight text-black">info@example.com</div>
+      </div>
+    </div>
+
+    <div class=" p-2 h-[fit-content] sm:border-2 border-white sm:bg-[#e99030]">
+      <div class=" flex gap-3 p-2 sm:border-2 border-white">
+        <img class="w-9 h-9 sm:bg-[#2b2925]" src="/images/birthday-cake-256.png" alt="">
+
+        <h1 class="font-bold text-3xl">CAKEZONE</h1>
+      </div>
+    </div>
+
+    <div class="flex gap-2 hidden sm:flex ">
+      <img class="h-10 w-10" src="/images/phone-2-512.png" alt="">
+      <div>
+        <div class="text-[#453b37] font-bold">CALL US</div>
+        <div class="font-extralight text-black text-nowrap">+012 345 6789</div>
+      </div>
+    </div>
+
   
-        <div class=" p-2 h-[fit-content] border-2 border-white bg-[#e99030] ">
-          <div class=" flex gap-3 p-2 border-2 border-white">
-            <img class="w-9 h-9 bg-[#2b2925]" src="/images/birthday-cake-256.png" alt="">
-  
-            <h1 class="font-bold text-3xl">CAKEZONE</h1>
-          </div>
-        </div>
-  
-        <div class=" hidden sm:block sm:flex gap-2 ">
-          <img class="h-10 w-10" src="/images/phone-2-512.png" alt="">
-          <div>
-            <div class="text-white font-bold">CALL US</div>
-            <div class="font-extralight text-white text-nowrap">+012 345 6789</div>
-          </div>
-        </div>
-  
-      </nav>
+
+
+  </nav>
 
     <div class="w-full min-h-screen  text-white p-10">
         <h3 class="text-3xl text-[#e99030] font-bold underline underline-offset-8 mb-5 text-center sm:text-4xl">Create Account</h3>
@@ -48,4 +57,75 @@
 
         <h3 class="text-black text-center mt-5">Already have an account ? <span class="text-[#e99030] text-1xl font-bold"><a href="/auth/signin">LOG IN</a></span></h3>
     </div>
+
+    
+ <!-------------SECTION-9 FOOTER --------------------------------------------------->
+ <section id="contact_us" class="bg-[#2b2925] p-3 flex flex-col items-center gap-5 ">
+  <div class="flex flex-col md:items-center lg:flex-row lg:items-start">
+    <div class="flex flex-col gap-4 sm:items-center  md:flex-row md:items-start ">
+      <!-------------cake card--------------------------------------------------->
+      <div class="bg-[#e99030]   p-2 sm:w-2/4 lg:w-2/6">
+        <div class="border-2 border-white p-2 flex flex-col  gap-3  items-center justify-center">
+          <div class="flex items-center justify-center gap-[1vw] items-center  sm:flex-col lg:flex-row">
+            <img class="h-10 w-10" src="/images/birthday-cake.png" alt="">
+            <h1 class="font-black text-white text-center text-2xl">CAKEZONE</h1>
+          </div>
+
+          <p class="text-center text-1xl text-white">Lorem ipsum, dolor sit amet consectetur
+            adipisicing
+            elit.
+            Odio
+            voluptatibus accusantium laboriosam architecto tempore dolore iure atque obcaecati porro
+            iste
+            aperiam praesentium quidem enim, temporibus ut soluta architecto tempore dolore iure
+            atque
+            obcaecati porro iste aperiam praesentium quidem enim,</p>
+        </div>
+      </div>
+
+      <div class=" w-full flex flex-col gap-3 sm:w-[fit-content] sm:flex sm:justify-center sm:gap-5 md:flex-row">
+        <div class="text-white flex flex-col gap-2  ">
+          <h1 class="text-[#e99030] text-2xl  tracking-tighter font-bold ">GET IN TOUCH</h1>
+          <p class="flex gap-2 text-1xl"><img class="h-6 w-6" src="/images/worldwide-location-512.png" alt="">123
+            Street, New Delhi, India</p>
+          <p class="flex gap-2 text-1xl"><img class="h-6 w-6" src="/images/email-512.png" alt="">info@example.com
+          </p>
+          <p class="flex gap-2 text-1xl"><img class="h-6 w-6" src="/images/phone-2-512.png" alt="">+012
+            345 6789</p>
+        </div>
+
+        <div class="text-white flex flex-col gap-2 ">
+          <h1 class="text-[#e99030] text-2xl tracking-tighter font-bold ">QUICK LINKS</h1>
+          <p class="flex gap-2 text-1xl"><img class="h-6 w-6" src="/images/arrow-20-512.png" alt="">Home
+          </p>
+          <p class="flex gap-2 text-1xl"><img class="h-6 w-6" src="/images/arrow-20-512.png" alt="">About
+            Us</p>
+          <p class="flex gap-2 text-1xl"><img class="h-6 w-6" src="/images/arrow-20-512.png" alt="">Our
+            Services</p>
+          <p class="flex gap-2 text-1xl text-nowrap"><img class="h-6 w-6" src="/images/arrow-20-512.png" alt="">Meet
+            The Team</p>
+          <p class="flex gap-2 text-1xl"><img class="h-6 w-6" src="/images/arrow-20-512.png" alt="">Latest
+            Blogs</p>
+          <p class="flex gap-2 text-1xl"><img class="h-6 w-6" src="/images/arrow-20-512.png" alt="">Contact Us</p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="text-white flex flex-col gap-2 mt-10 md:w-3/5 lg:mt-0">
+      <h1 class="text-[#e99030] text-2xl tracking-tighter font-bold">NEWSLETTER</h1>
+      <P class=" text-1xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, eius.</P>
+      <p class="flex flex-col"><input class=" text-black p-2  text-center" type="email"
+          placeholder="Your Email"><input class="text-white p-2 text-center bg-[#e99030] font-black " type="submit"
+          value="Sign Up"></p>
+    </div>
+  </div>
+
+
+
+</section>   
+    </body>
 </html>

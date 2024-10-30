@@ -9,7 +9,8 @@ app.use(cookieParser())
 const isLoggedIn=(req, res, next)=> {
     const token = req.cookies.token;
 
-    if (!token) return res.sendStatus(401);
+    // if (!token) return res.sendStatus(401);
+    if (!token) return res.redirect('/auth/signin');
 
     jwt.verify(token, "SECRET", (err, user) => {
         if (err) return res.sendStatus(403);

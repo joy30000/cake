@@ -60,14 +60,10 @@
           <li><a href="#menu_&_pricing">MENU & PRICING</a></li>
           <li><a href="#master_chefs">MASTER CHEFS</a></li>
           <li><a href="#contact_us">CONTACT US</a></li>
-          <!-- <li><a href="/cart">CART</a></li> -->
+         
           <% if(user!='' ){ %>
 
-            <!-- <li id="box" class="border-2 border-white flex items-center z-50">
-              <img class="h-9 rounded-full mr-3" src="/images/<%= user.profilepic %>" alt="">
-              <a class="text-[#e99030]" href=""><%= user.username %></a>
-              <img onclick="expand()" class="h-5 w-5 ml-3  " src="/images/arrow-204-512.png" alt="">
-            </li> -->
+            
             <li>
               <div class="dropdown flex">
                 <img class="h-9 rounded-full border-2 border-[#e99030] " src="/images/<%= user.profilepic %>"
@@ -110,18 +106,18 @@
 
       <div class="flex gap-7 justify-center items-center">
         <!------------- read more button--------------------------------------------------->
-        <div class="bg-[#e99030] p-2 h-[fit-content] w-36 sm:w-40 md:w-44 lg:w-52">
+        <a href="/products/list-products?currentUrl=<%= currentUrl %>" class="bg-[#e99030] p-2 h-[fit-content] w-36 sm:w-40 md:w-44 lg:w-52">
           <div class="border-2 border-white font-semibold text-center text-nowrap sm:text-2xl md:text-3xl lg:text-4xl">
             Read More</div>
-        </div>
+        </a>
         <!------------- play video--------------------------------------------------->
-        <div class="flex items-center gap-2">
+        <a href="/products/list-products?currentUrl=<%= currentUrl %>" class="flex items-center gap-2">
           <div class="h-14 w-14 rounded-full bg-white">
             <img class="h-14 w-14 rotate-90 rounded-full"
-              src="/images/orange triangle 1c4378bc-f5b0-4e5f-9e69-ae13285d8f52.png" alt="">
+              src="/images/orange triangle 1c4378bc-f5b0-4e5f-9e69-ae13285d8f52.png" alt="no image">
           </div>
           <p class="sm:text-1xl md:text-2xl lg:text-3xl">Play video</p>
-        </div>
+        </a>
 
       </div>
 
@@ -354,11 +350,11 @@
       <h1 class="font-bold text-white text-3xl text-center mt-10 sm:text-4xl lg:text-5xl">30% DISCOUNT FOR THIS
         SUMMER</h1>
 
-      <div class="bg-[#e99030] w-2/4 p-2 mb-20  mt-10 sm:w-1/4">
+      <a href="/products/list-products?currentUrl=<%= currentUrl %>" class="bg-[#e99030] w-2/4 p-2 mb-20  mt-10 sm:w-1/4">
         <div class="border-2 border-white flex h-full  gap-3 items-center justify-center">
           <h5 class="font-bold text-white text-2xl">Order Now</h5>
         </div>
-      </div>
+      </a>
 
     </section>
 
@@ -432,17 +428,17 @@
 
         <div class="flex gap-5 items-center">
 
-          <div class="bg-[#e99030] w-4/5 p-2  ">
+          <a href="/products/list-products?currentUrl=<%= currentUrl %>" class="bg-[#e99030] w-4/5 p-2  ">
             <div class="border-2 border-white flex h-full  p-2 gap-3 items-center justify-center">
               <h5 class="font-bold text-white text-2xl text-nowrap">Order Now</h5>
             </div>
-          </div>
+          </a>
 
-          <div class="bg-[#2b2925] w-4/5 p-2 ">
+          <a href="/products/list-products?currentUrl=<%= currentUrl %>" class="bg-[#2b2925] w-4/5 p-2 ">
             <div class="border-2 border-white flex h-full p-2  gap-3 items-center justify-center">
               <h5 class="font-bold text-white text-2xl text-nowrap">Order Now</h5>
             </div>
-          </div>
+          </a>
 
         </div>
 
