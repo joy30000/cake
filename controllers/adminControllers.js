@@ -41,8 +41,13 @@ const admin_dashboard_Controller = async (req, res) => {
 
 //----------CREATE NEW PRODUCT PAGE|| METHOD POST------------------//
 const admin_createNewProduct_Controller = async (req, res) => {
-    let productpic = req.file.filename
+   // let productpic = req.file.filename
+   let productpic = req.file ? req.file.filename : null;
     let { name, price, description, category } = req.body
+
+    if(!name || !price || !description || !category || !productpic ){
+        return res.status(400).send('All fields are required');
+    }
 
     let findproduct = await productModel.findOne({ name: name })
     if (!findproduct) {
